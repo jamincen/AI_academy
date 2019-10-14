@@ -10,28 +10,39 @@ def check():
     print("       当前余额$：", cash)
 
 def deposit():
-    global cash
-    cash_in = (input("      存款金额$："))
+    dep = 0
+    while dep == 0:
+        global cash
+        cash_in = (input("      存款金额$："))
     
-    # 输入异常处理
-    try:
-        float(cash_in)
-    except ValueError:
-        print("        输入有误！")
-        return
+        # 输入异常处理
+    
+        try:
+            float(cash_in)
+            dep = 1
+        except:
+            print("        输入有误！重新输入！")
+            dep = 0
         
     cash = cash + float(cash_in)
 
 def withdrawal():
-    global cash
-    cash_out = input("      取款金额$：")
+    wit = 0
+    while wit == 0:
+        global cash
+        cash_out = input("      取款金额$：")
 
-    # 输入异常处理
-    try:
-        float(cash_out)
-    except ValueError:
-        print("        输入有误！")
-        return
+        # 输入异常处理
+        try:
+            float(cash_out)
+            if float(cash) - float(cash_out) >= 0:
+                wit = 1
+            else:
+                print("        当前余额为：{}，请确认取款金额！".format(cash))
+        except ValueError:
+            print("        输入有误！重新输入")
+            wit = 0
+            
     cash = cash - float(cash_out)
 
 def quitt():
@@ -61,33 +72,33 @@ while i == 1:
         ---------------------
         """)
     busy()
-    business = (input("    请选择要办理业务的编号（1、2、3、4）："))
+    j = 0
+    while j == 0:
+        business = (input("    请选择要办理业务的编号（1、2、3、4）："))
 
-    # 输入异常处理
-    try:
-        int(business)
-    except ValueError:
-        business = 0
-        
+        # 输入异常处理
+        try:
+            int(business)
+            if business in ['1', '2', '3', '4']:
+                j = 1
+            else:
+                print("    ***业务编号输入有误，请重新输入！***")
+        except:
+            j = 0
+            print("    ***业务编号输入有误，请重新输入！***")
+       
     business = int(business)
+        
     print("""
     ---------------------------------------
         """)
     if business == 1:
-        check()
-    
+        check()    
     elif business == 2:
-        deposit()
-    
+        deposit()   
     elif business == 3:
-        withdrawal()
-    
+        withdrawal()   
     elif business == 4:
         quitt()
         i = 0
-    else:
-        print("    ***业务编号输入有误，请重新输入！***")
-
-
-    
     
