@@ -1,21 +1,37 @@
 ### 作业1：实现一周记账功能
-# in,out,balance
+# in: 收入
+# out: 支出
+# balance: 余额
 sa = []
 sb = []
 sc = {}
 weeks = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
 # get daiy in and out
+
 for i in weeks:
-    a = input("please enter {} 'in': ".format(i))
-    b = input("please enter {} 'out': ".format(i))
-    
-    if a == "":
-        a = 0
-        print("---enter nothing---")
-    if b == "":
-        b = 0
-        print("---enter nothing---")
+    ina = 0
+    while ina == 0:
+        a = input("please enter {} <in>: ".format(i))
+
+        try:
+            float(a)
+            ina = 1
+        except:
+            print("--enter error,retry!--")
+            ina = 0
+            
+    inb = 0       
+    while inb == 0:
+        b = input("please enter {} <out>: ".format(i))
+   
+        try:
+            float(b)
+            inb = 1
+        except:
+            print("--enter error,retry!--")
+            inb = 0
+        
         
     a = float(a)
     b = float(b)
