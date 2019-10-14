@@ -12,15 +12,14 @@ text = '''2019 年 十月 一日 上午 ， 庆祝 中华人民共和国 成立 
 # 切片及去重
 vocab_text = text.split()
 vocab_text_overkill = {}
-vocab_text_overkill = dict.fromkeys(vocab_text)
+vocab_text_overkill = vocab_text_overkill.fromkeys(vocab_text)
 
 # 词汇列表
 vocab = []
 wordid = {}
 idword = {}
 
-for i in vocab_text_overkill.keys():
-    vocab.append(i)
+vocab = list(vocab_text_overkill.keys())
     
 # 统计
 value = 0
