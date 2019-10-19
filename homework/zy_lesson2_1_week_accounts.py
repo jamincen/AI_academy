@@ -5,7 +5,7 @@
 sa = []
 sb = []
 sc = {}
-weeks = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+weeks = ("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
 
 # get daiy in and out
 
